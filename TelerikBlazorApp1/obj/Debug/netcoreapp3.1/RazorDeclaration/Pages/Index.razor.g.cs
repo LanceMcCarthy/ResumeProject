@@ -98,7 +98,7 @@ using Telerik.Blazor.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 115 "C:\Users\Aki\source\repos\TelerikBlazorApp1\TelerikBlazorApp1\Pages\Index.razor"
+#line 143 "C:\Users\Aki\source\repos\TelerikBlazorApp1\TelerikBlazorApp1\Pages\Index.razor"
        
     Telerik.Blazor.Components.TelerikAnimationContainer petDeskInfoRef;
     Telerik.Blazor.Components.TelerikAnimationContainer tacoBellInfoRef;
@@ -118,6 +118,42 @@ using Telerik.Blazor.Components;
     {
         await digMapInfoRef.ToggleAsync();
     }
+
+    public class StrengthData
+    {
+        public string Category { get; set; }
+        public Int32 Value { get; set; }
+    }
+
+    public List<StrengthData> DataForStrengthsChart = new List<StrengthData>()
+    {
+        new StrengthData()
+        {
+            Category = "Focused",
+            Value = 9
+        },
+        new StrengthData()
+        {
+            Category = "Detail-oriented",
+            Value = 8
+        },
+        new StrengthData()
+        {
+            Category = "Curious",
+            Value = 7
+        },
+        new StrengthData()
+        {
+            Category = "Empathetic",
+            Value = 7
+        },
+        new StrengthData()
+        {
+            Category = "Flexible",
+            Value = 6
+        },
+
+    };
 
 #line default
 #line hidden

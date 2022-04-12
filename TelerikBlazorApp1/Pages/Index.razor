@@ -15,14 +15,14 @@
             <Content>
                 <div class="descriptions" style="text-align: center">
                     Milford, CT <br />
-                    714-227-9216 <br />
+                    714-227-9216 &bull;
                     akitanaka20@gmail.com
                 </div>
             </Content>
         </TileLayoutItem>
         <TileLayoutItem ColSpan="3">
             <HeaderTemplate>
-                <p class="header" style="text-align: center"><strong>ABOUT ME</strong></p>
+                <p class="header"><strong>ABOUT ME</strong></p>
             </HeaderTemplate>
             <Content>
                 <p class="descriptions">
@@ -32,9 +32,36 @@
                 </p>
             </Content>
         </TileLayoutItem>
+        <TileLayoutItem ColSpan="3" RowSpan="2">
+            <HeaderTemplate>
+                <p class="header"><strong>STRENGTHS</strong></p>
+            </HeaderTemplate>
+            <Content>
+                <div style="width:90%; display: inline-block; ">
+                    <TelerikChart>
+                        <ChartLegend Visible="false" Position="ChartLegendPosition.Left"></ChartLegend>
+                        <ChartSeriesItems>
+                            <ChartSeries Type="@ChartSeriesType.Column" Data="@DataForStrengthsChart" Color="#cdf7d8" Gap="3"
+                                         Field="@nameof(StrengthData.Value)" CategoryField="@nameof(StrengthData.Category)">
+                                <ChartSeriesTooltip Visible="true">
+                                    <Template>
+                                        @((context.DataItem as StrengthData).Category): @((context.DataItem as StrengthData).Value)
+                                    </Template>
+                                </ChartSeriesTooltip>
+                                <ChartSeriesLabels Position="@ChartSeriesLabelsPosition.Bottom"
+                                                   Visible="true"
+                                                   Background="transparent"
+                                                   Format="{0}">
+                                </ChartSeriesLabels>
+                            </ChartSeries>
+                        </ChartSeriesItems>
+                    </TelerikChart>
+                </div>
+            </Content>
+        </TileLayoutItem>
         <TileLayoutItem ColSpan="3">
             <HeaderTemplate>
-                <p class="header" style="text-align: center"><strong>EDUCATION</strong></p>
+                <p class="header"><strong>EDUCATION</strong></p>
             </HeaderTemplate>
             <Content>
                 <dl class="descriptions">
@@ -45,6 +72,7 @@
                 </dl>
             </Content>
         </TileLayoutItem>
+
         <TileLayoutItem ColSpan="6">
             <HeaderTemplate>
                 <p class="header"><strong>EXPERIENCE</strong></p>
@@ -88,7 +116,7 @@
                         <li>Collaborated with cross-functional teams to implement client-specific solutions</li>
                         <li>Performed QA and testing of newly developed features at each stage of deployment</li>
                     </ul>
-                </div>              
+                </div>
             </Content>
         </TileLayoutItem>
         <TileLayoutItem ColSpan="6">
@@ -131,4 +159,40 @@
     {
         await digMapInfoRef.ToggleAsync();
     }
+
+    public class StrengthData
+    {
+        public string Category { get; set; }
+        public Int32 Value { get; set; }
+    }
+
+    public List<StrengthData> DataForStrengthsChart = new List<StrengthData>()
+    {
+        new StrengthData()
+        {
+            Category = "Focused",
+            Value = 9
+        },
+        new StrengthData()
+        {
+            Category = "Detail-oriented",
+            Value = 8
+        },
+        new StrengthData()
+        {
+            Category = "Curious",
+            Value = 7
+        },
+        new StrengthData()
+        {
+            Category = "Empathetic",
+            Value = 7
+        },
+        new StrengthData()
+        {
+            Category = "Flexible",
+            Value = 6
+        },
+
+    };
 }
