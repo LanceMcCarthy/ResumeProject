@@ -1,0 +1,28 @@
+﻿@page "/reportviewer"
+@using Telerik.ReportViewer.Blazor 
+  
+
+<style>
+    .trv-report-viewer {
+        width: 1300px;
+        height: 880px;
+    }
+</style>
+  
+<ReportViewer @ref="reportViewer1"
+              ViewerId="rv1"
+              ServiceUrl="/api/reports"
+              ReportSource="@(new ReportSourceOptions 
+                              { 
+                                  Report = "AkiReport.trdp",
+              })"
+              Parameters="@(new ParametersOptions { Editors =
+new EditorsOptions { MultiSelect = EditorType.ComboBox, SingleSelect = EditorType.ComboBox }
+})"
+              ScaleMode="@(ScaleMode.Specific)"
+              Scale="1.0"
+              EnableAccessibility="false"/> 
+
+@code { 
+    ReportViewer reportViewer1; 
+}
