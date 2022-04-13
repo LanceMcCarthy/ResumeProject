@@ -2,13 +2,25 @@
   
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+	  <AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
+	  <StartupObject>TelerikBlazorApp1.Program</StartupObject>
   </PropertyGroup>
   
   <ItemGroup>
-    <PackageReference Include="Telerik.Reporting.OpenXmlRendering.Trial" Version="16.0.22.225" />
-    <PackageReference Include="Telerik.Reporting.Services.AspNetCore.Trial" Version="16.0.22.225" />
-    <PackageReference Include="Telerik.ReportViewer.Blazor.Trial" Version="16.0.22.225" />
-    <PackageReference Include="Telerik.UI.for.Blazor.Trial" Version="3.1.0" />
+    <None Remove="Reports\AkiReport.trdp" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Content Include="Reports\AkiReport.trdp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Telerik.Reporting.OpenXmlRendering" Version="16.0.22.225" />
+    <PackageReference Include="Telerik.Reporting.Services.AspNetCore" Version="16.0.22.225" />
+    <PackageReference Include="Telerik.ReportViewer.Blazor" Version="16.0.22.225" />
+    <PackageReference Include="Telerik.UI.for.Blazor" Version="3.1.0" />
   </ItemGroup>
 
 </Project>
