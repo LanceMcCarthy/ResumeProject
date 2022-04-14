@@ -1,0 +1,198 @@
+﻿@page "/"
+
+<TelerikTileLayout Columns="6"
+                   ColumnWidth="170px"
+                   RowHeight="auto"
+                   Resizable="false"
+                   Reorderable="false"
+                   ColumnSpacing="5px"
+                   RowSpacing="5px">
+    <TileLayoutItems>
+        <TileLayoutItem ColSpan="6">
+            <HeaderTemplate>
+                <p id="myName">AKI TANAKA</p>
+            </HeaderTemplate>
+            <Content>
+                <div class="descriptions" style="text-align: center">
+                    Milford, CT <br />
+                    714-227-9216 &bull;
+                    akitanaka20@gmail.com
+                </div>
+            </Content>
+        </TileLayoutItem>
+        <TileLayoutItem ColSpan="3">
+            <HeaderTemplate>
+                <p class="header"><strong>ABOUT ME</strong></p>
+            </HeaderTemplate>
+            <Content>
+                <p class="descriptions">
+                    Dedicated support engineer with over 5 years of experience supporting various data-driven
+                    software applications. Performs exceptionally well in environments that consist of fulfilling
+                    technical responsibilities while effectively communicating with individuals of all technical levels.
+                </p>
+            </Content>
+        </TileLayoutItem>
+        <TileLayoutItem ColSpan="3" RowSpan="2">
+            <HeaderTemplate>
+                <p class="header"><strong>STRENGTHS</strong></p>
+            </HeaderTemplate>
+            <Content>
+                <div style="width:90%; display: inline-block; ">
+                    <TelerikChart>
+                        <ChartLegend Visible="false" Position="ChartLegendPosition.Left"></ChartLegend>
+                        <ChartSeriesItems>
+                            <ChartSeries Type="@ChartSeriesType.Column" Data="@DataForStrengthsChart" Color="#cdf7d8" Gap="3"
+                                         Field="@nameof(StrengthData.Value)" CategoryField="@nameof(StrengthData.Category)">
+                                <ChartSeriesTooltip Visible="true">
+                                    <Template>
+                                        @((context.DataItem as StrengthData).Category): @((context.DataItem as StrengthData).Value)
+                                    </Template>
+                                </ChartSeriesTooltip>
+                                <ChartSeriesLabels Position="@ChartSeriesLabelsPosition.Bottom"
+                                                   Visible="true"
+                                                   Background="transparent"
+                                                   Format="{0}">
+                                </ChartSeriesLabels>
+                            </ChartSeries>
+                        </ChartSeriesItems>
+                    </TelerikChart>
+                </div>
+            </Content>
+        </TileLayoutItem>
+        <TileLayoutItem ColSpan="3">
+            <HeaderTemplate>
+                <p class="header"><strong>EDUCATION</strong></p>
+            </HeaderTemplate>
+            <Content>
+                <dl class="descriptions">
+                    <dt>2009 - 2014 &bull; CSU Long Beach</dt>
+                    <dd>BS Kinesiology</dd>
+                    <dt>2018 - 2021 &bull; Western Governor's University</dt>
+                    <dd>BS Software Development</dd>
+                </dl>
+            </Content>
+        </TileLayoutItem>
+
+        <TileLayoutItem ColSpan="6">
+            <HeaderTemplate>
+                <p class="header"><strong>EXPERIENCE</strong></p>
+            </HeaderTemplate>
+            <Content>
+                <div class="descriptions">
+                    <dl>
+                        <dt>2022 PetDesk <TelerikButton Class="infoButton" Icon="info-circle" OnClick="@TogglePetDeskInfo"></TelerikButton></dt>
+                        <TelerikAnimationContainer @ref="petDeskInfoRef" Top="50px" Left="160px" Width="250px" Height="100px" AnimationType="AnimationType.SlideRight" Class="k-popup">
+                            <p class="companyInfo">PetDesk is a SaaS appointment and reminder platform helping pet services providers grow their business by supplying their clients with a single app to manage their pet's lives.</p>
+                        </TelerikAnimationContainer>
+                        <dd>Support Developer II</dd>
+                    </dl>
+                    <ul>
+                        <li>Engineer for Support and Internal Tools team utilizing .Net/C#</li>
+                        <li>Supported and maintained over 10 projects across multiple teams</li>
+                        <li>Developed internal administration tool utilized by customer-facing teams</li>
+                        <li>Contributed to a 25% increase in bug resolutions on a monthly basis</li>
+                    </ul>
+                    <dl>
+                        <dt>2020 Taco Bell <TelerikButton Class="infoButton" Icon="info-circle" OnClick="@ToggleTacoBellInfo"></TelerikButton></dt>
+                        <TelerikAnimationContainer @ref="tacoBellInfoRef" Top="220px" Left="160px" Width="250px" Height="60px" AnimationType="AnimationType.SlideRight" Class="k-popup">
+                            <p class="companyInfo">Taco Bell is the nation's leading Mexican-style quick service restaurant chain.</p>
+                        </TelerikAnimationContainer>
+                        <dd>Data Management Analyst</dd>
+                    </dl>
+                    <ul>
+                        <li>Configured and deployed web, mobile, and in-store digital menus</li>
+                        <li>Managed Hybris CMS to maintain product data for over 6000 locations</li>
+                        <li>Developed internal applications and support tools written in VB, C#, ASP.NET</li>
+                    </ul>
+                    <dl>
+                        <dt>2018 Digital Map Products <TelerikButton Class="infoButton" Icon="info-circle" OnClick="@ToggleDigMapInfo"></TelerikButton></dt>
+                        <TelerikAnimationContainer @ref="digMapInfoRef" Top="350px" Left="230px" Width="250px" Height="120px" AnimationType="AnimationType.SlideRight" Class="k-popup">
+                            <p class="companyInfo">Digital Map Products is a leading provider of web-enabled spatial solutions that bring the power of spatial technology to mainstream business, government and consumer applications.</p>
+                        </TelerikAnimationContainer>
+                        <dd>Support Engineer</dd>
+                    </dl>
+                    <ul>
+                        <li>Resolved complex issues escalated past our support team</li>
+                        <li>Collaborated with cross-functional teams to implement client-specific solutions</li>
+                        <li>Performed QA and testing of newly developed features at each stage of deployment</li>
+                    </ul>
+                </div>
+            </Content>
+        </TileLayoutItem>
+        <TileLayoutItem ColSpan="6">
+            <HeaderTemplate>
+                <p class="header"><strong>SKILLS TOOLS CERTIFICATIONS</strong></p>
+            </HeaderTemplate>
+            <Content>
+                <div class="skills-row">
+                    <div class="skills-column">C#, SQL, Xamarin,<br />VBA, JavaScript,<br />HTML, CSS</div>
+                    <div class="skills-column">Visual Studio,<br />Linqpad, SSMS,<br />TeamCity, JIRA</div>
+                    <div class="skills-column"> CompTIA A+,<br />CompTIA Project+,<br />ITIL V3 Foundations</div>
+                </div>
+            </Content>
+        </TileLayoutItem>
+        <TileLayoutItem ColSpan="6" Class="bottomTile">
+            <Content>
+                <p class="footerParagraph">714-227-9216 &bull; akitanaka20@gmail.com &bull; https://github.com/atanaka1591</p>
+            </Content>
+        </TileLayoutItem>
+    </TileLayoutItems>
+</TelerikTileLayout>
+
+
+@code {
+    Telerik.Blazor.Components.TelerikAnimationContainer petDeskInfoRef;
+    Telerik.Blazor.Components.TelerikAnimationContainer tacoBellInfoRef;
+    Telerik.Blazor.Components.TelerikAnimationContainer digMapInfoRef;
+
+    async Task TogglePetDeskInfo()
+    {
+        await petDeskInfoRef.ToggleAsync();
+    }
+
+    async Task ToggleTacoBellInfo()
+    {
+        await tacoBellInfoRef.ToggleAsync();
+    }
+
+    async Task ToggleDigMapInfo()
+    {
+        await digMapInfoRef.ToggleAsync();
+    }
+
+    public class StrengthData
+    {
+        public string Category { get; set; }
+        public Int32 Value { get; set; }
+    }
+
+    public List<StrengthData> DataForStrengthsChart = new List<StrengthData>()
+    {
+        new StrengthData()
+        {
+            Category = "Focused",
+            Value = 9
+        },
+        new StrengthData()
+        {
+            Category = "Detail-oriented",
+            Value = 8
+        },
+        new StrengthData()
+        {
+            Category = "Curious",
+            Value = 7
+        },
+        new StrengthData()
+        {
+            Category = "Empathetic",
+            Value = 7
+        },
+        new StrengthData()
+        {
+            Category = "Flexible",
+            Value = 6
+        },
+
+    };
+}
