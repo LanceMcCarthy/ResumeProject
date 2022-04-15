@@ -36,11 +36,10 @@ namespace TelerikBlazorApp1
             services.AddMvc();
             services.TryAddSingleton<IReportServiceConfiguration>(sp => new ReportServiceConfiguration
             {
-            	ReportingEngineConfiguration = sp.GetService<IConfiguration>(),
-            	HostAppId = "BlazorReportViewerDemo",
-            	Storage = new FileStorage(),
-            	ReportSourceResolver = new UriReportSourceResolver(
-            		System.IO.Path.Combine(GetReportsDir(sp)))
+                ReportingEngineConfiguration = sp.GetService<IConfiguration>(),
+                HostAppId = "BlazorWebReportDesignerDemo",
+                Storage = new FileStorage(),
+                ReportSourceResolver = new UriReportSourceResolver(Path.Combine(sp.GetService<IWebHostEnvironment>().WebRootPath, "Reports"))
             });
 
             services.AddRazorPages().AddNewtonsoftJson();
