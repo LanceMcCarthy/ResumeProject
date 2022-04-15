@@ -11,9 +11,14 @@
     <base href="~/" />
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
     <link href="css/site.css" rel="stylesheet" />
-    <script src="_content/Telerik.UI.for.Blazor.Trial/js/telerik-blazor.js" defer></script>
+    
+    @* Edit by Lance: Swapped Trial with dev version *@
+    @*<script src="_content/Telerik.UI.for.Blazor.Trial/js/telerik-blazor.js" defer></script>*@
+    <script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js" defer></script>
+
     <link href="@Url.Content("lib/blazor-ui/styles/bootstrap-urban.css")" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="~/css/Font.css">
+    <link rel="stylesheet" href="~/css/Font.css">
+
     @* Report Viewer dependencies *@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://kendo.cdn.telerik.com/2022.1.119/js/kendo.all.min.js"></script>
@@ -35,8 +40,10 @@
         <a class="dismiss">🗙</a>
     </div>
 
-    <script src="_framework/blazor.server.js"></script>
-    <script src="_content/Telerik.ReportViewer.Blazor.Trial/interop.js" defer></script>
-
+    <script src="_framework/blazor.server.js"></script>
+    
+    @* Edit by Lance: Swapped Trial with dev version *@
+    @*<script src="_content/Telerik.ReportViewer.Blazor.Trial/interop.js" defer></script>*@
+    <script src="_content/Telerik.ReportViewer.Blazor/interop.js" defer></script>
 </body>
 </html>
